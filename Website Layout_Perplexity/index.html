@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Internship Management Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <span>CorporateIntern</span>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-view="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </button>
+                <button class="nav-btn" data-view="projects">
+                    <i class="fas fa-project-diagram"></i>
+                    Projects
+                </button>
+                <button class="nav-btn" data-view="tickets">
+                    <i class="fas fa-ticket-alt"></i>
+                    Tickets
+                </button>
+                <button class="nav-btn" data-view="documents">
+                    <i class="fas fa-file-alt"></i>
+                    Documents
+                </button>
+                <button class="nav-btn" data-view="communication">
+                    <i class="fas fa-comments"></i>
+                    Chat
+                </button>
+                <button class="nav-btn" data-view="mentorship">
+                    <i class="fas fa-user-tie"></i>
+                    Mentorship
+                </button>
+                <button class="nav-btn" data-view="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics
+                </button>
+            </nav>
+            <div class="user-menu">
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                    </button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Alex Kumar</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard View -->
+        <div id="dashboard" class="view active">
+            <div class="view-header">
+                <h1>Dashboard</h1>
+                <p>Welcome back, Alex! Here's your progress overview.</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- Progress Overview -->
+                <div class="card progress-card">
+                    <div class="card__body">
+                        <h3>Current Progress</h3>
+                        <div class="progress-ring">
+                            <div class="progress-value">75%</div>
+                        </div>
+                        <p>Sprint 3 - Development Phase</p>
+                        <button class="btn btn--primary btn--sm">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card stats-card">
+                    <div class="card__body">
+                        <h3>Quick Stats</h3>
+                        <div class="stat-item">
+                            <i class="fas fa-tasks"></i>
+                            <div>
+                                <strong id="task-stats">16/24</strong>
+                                <span>Tasks Completed</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <strong id="badges-stats">3</strong>
+                                <span>Badges Earned</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong id="cert-stats">2</strong>
+                                <span>Certificates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Info -->
+                <div class="card team-card">
+                    <div class="card__body">
+                        <h3>Team Alpha</h3>
+                        <p class="team-project">E-Learning Platform</p>
+                        <div class="team-members">
+                            <div class="member-avatars">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Alex" title="Alex Kumar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=40&h=40&fit=crop&crop=face" alt="Priya" title="Priya Sharma">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Raj" title="Raj Patel">
+                                <div class="member-count" title="3 more members">+3</div>
+                            </div>
+                            <p>6 team members</p>
+                        </div>
+                        <button class="btn btn--outline btn--sm">View Team</button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card activity-card">
+                    <div class="card__body">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list" id="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-code activity-icon"></i>
+                                <div>
+                                    <strong>Completed authentication module</strong>
+                                    <span>2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-bug activity-icon"></i>
+                                <div>
+                                    <strong>Bug fixed: Mobile responsive login</strong>
+                                    <span>Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-award activity-icon"></i>
+                                <div>
+                                    <strong>Earned "Sprint Champion" badge</strong>
+                                    <span>2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Tasks -->
+                <div class="card tasks-card">
+                    <div class="card__body">
+                        <h3>Upcoming Tasks</h3>
+                        <div class="task-list" id="upcoming-tasks">
+                            <div class="task-item">
+                                <div class="task-priority high"></div>
+                                <div class="task-content">
+                                    <strong>Implement user authentication</strong>
+                                    <span>Due: Aug 20</span>
+                                </div>
+                                <span class="status status--warning">In Progress</span>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-priority medium"></div>
+                                <div class="task-content">
+                                    <strong>Design course catalog UI</strong>
+                                    <span>Due: Aug 22</span>
+                                </div>
+                                <span class="status status--info">To Do</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--outline btn--sm">View All Tasks</button>
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="card leaderboard-card">
+                    <div class="card__body">
+                        <h3>Team Leaderboard</h3>
+                        <div class="leaderboard-list" id="leaderboard">
+                            <div class="leaderboard-item">
+                                <div class="rank">1</div>
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=40&h=40&fit=crop&crop=face" alt="Priya">
+                                <div class="leader-info">
+                                    <strong>Priya Sharma</strong>
+                                    <span>2,450 points</span>
+                                </div>
+                                <div class="badges-count">8</div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="rank">2</div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Alex">
+                                <div class="leader-info">
+                                    <strong>Alex Kumar</strong>
+                                    <span>2,380 points</span>
+                                </div>
+                                <div class="badges-count">7</div>
+                            </div>
+                            <div class="leaderboard-item">
+                                <div class="rank">3</div>
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&crop=face" alt="Maya">
+                                <div class="leader-info">
+                                    <strong>Maya Singh</strong>
+                                    <span>2,250 points</span>
+                                </div>
+                                <div class="badges-count">6</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects View -->
+        <div id="projects" class="view">
+            <div class="view-header">
+                <h1>Project Management</h1>
+                <div class="header-actions">
+                    <button class="btn btn--outline">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                    <button class="btn btn--primary" onclick="createNewTask()">
+                        <i class="fas fa-plus"></i>
+                        New Task
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Cards with VM Status -->
+            <div class="projects-grid">
+                <div class="card project-card" data-project-id="1">
+                    <div class="card__body">
+                        <div class="project-header">
+                            <h2>E-Learning Platform</h2>
+                            <div class="vm-status vm-status--running">
+                                <i class="fas fa-server"></i>
+                                <span>VM Running</span>
+                            </div>
+                        </div>
+                        <p>A comprehensive online learning management system with video streaming, assessments, and progress tracking.</p>
+                        <div class="project-meta">
+                            <span class="status status--warning">Development Phase</span>
+                            <span class="progress-text">65% Complete</span>
+                            <span class="project-deadline">Due: Sept 15, 2024</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <div class="vm-quick-stats">
+                            <div class="vm-stat">
+                                <span>CPU: 45%</span>
+                                <div class="vm-usage-bar"><div style="width: 45%"></div></div>
+                            </div>
+                            <div class="vm-stat">
+                                <span>Memory: 62%</span>
+                                <div class="vm-usage-bar"><div style="width: 62%"></div></div>
+                            </div>
+                            <div class="vm-stat">
+                                <span>Storage: 35%</span>
+                                <div class="vm-usage-bar"><div style="width: 35%"></div></div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn--outline btn--sm" onclick="showProjectDetails(1)">View Details</button>
+                            <button class="btn btn--primary btn--sm" onclick="launchVM('vm-elearn-001')">
+                                <i class="fas fa-play"></i>
+                                Launch VM
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-project-id="2">
+                    <div class="card__body">
+                        <div class="project-header">
+                            <h2>Task Management System</h2>
+                            <div class="vm-status vm-status--stopped">
+                                <i class="fas fa-server"></i>
+                                <span>VM Stopped</span>
+                            </div>
+                        </div>
+                        <p>Enterprise-grade task management with team collaboration features.</p>
+                        <div class="project-meta">
+                            <span class="status status--info">Testing Phase</span>
+                            <span class="progress-text">85% Complete</span>
+                            <span class="project-deadline">Due: Aug 20, 2024</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="vm-quick-stats">
+                            <div class="vm-stat">
+                                <span>CPU: 0%</span>
+                                <div class="vm-usage-bar"><div style="width: 0%"></div></div>
+                            </div>
+                            <div class="vm-stat">
+                                <span>Memory: 0%</span>
+                                <div class="vm-usage-bar"><div style="width: 0%"></div></div>
+                            </div>
+                            <div class="vm-stat">
+                                <span>Storage: 42%</span>
+                                <div class="vm-usage-bar"><div style="width: 42%"></div></div>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn--outline btn--sm" onclick="showProjectDetails(2)">View Details</button>
+                            <button class="btn btn--success btn--sm" onclick="startVM('vm-task-002')">
+                                <i class="fas fa-power-off"></i>
+                                Start VM
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="kanban-board">
+                <div class="kanban-column" data-status="todo">
+                    <h3>To Do <span class="task-count">2</span></h3>
+                    <div class="kanban-tasks" id="todo-tasks">
+                        <div class="kanban-task" draggable="true">
+                            <div class="task-priority medium"></div>
+                            <h4>Design course catalog UI</h4>
+                            <p>Create responsive course listing with search and filters</p>
+                            <div class="task-meta">
+                                <span class="story-points">5 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=30&h=30&fit=crop&crop=face" alt="Raj" title="Raj Patel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-task" draggable="true">
+                            <div class="task-priority low"></div>
+                            <h4>Update documentation</h4>
+                            <p>Review and update API documentation</p>
+                            <div class="task-meta">
+                                <span class="story-points">3 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=30&h=30&fit=crop&crop=face" alt="Priya" title="Priya Sharma">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column" data-status="inprogress">
+                    <h3>In Progress <span class="task-count">2</span></h3>
+                    <div class="kanban-tasks" id="inprogress-tasks">
+                        <div class="kanban-task" draggable="true">
+                            <div class="task-priority high"></div>
+                            <h4>Implement user authentication</h4>
+                            <p>Create login/signup functionality with JWT tokens</p>
+                            <div class="task-meta">
+                                <span class="story-points">8 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=30&h=30&fit=crop&crop=face" alt="Alex" title="Alex Kumar">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-task" draggable="true">
+                            <div class="task-priority high"></div>
+                            <h4>Setup CI/CD pipeline</h4>
+                            <p>Configure automated deployment with Docker</p>
+                            <div class="task-meta">
+                                <span class="story-points">10 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=30&h=30&fit=crop&crop=face" alt="Arjun" title="Arjun Reddy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column" data-status="review">
+                    <h3>Review <span class="task-count">1</span></h3>
+                    <div class="kanban-tasks" id="review-tasks">
+                        <div class="kanban-task" draggable="true">
+                            <div class="task-priority medium"></div>
+                            <h4>Database schema design</h4>
+                            <p>Design optimized database schema for user data</p>
+                            <div class="task-meta">
+                                <span class="story-points">6 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=30&h=30&fit=crop&crop=face" alt="Maya" title="Maya Singh">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanban-column" data-status="done">
+                    <h3>Done <span class="task-count">1</span></h3>
+                    <div class="kanban-tasks" id="done-tasks">
+                        <div class="kanban-task completed" draggable="true">
+                            <div class="task-priority high"></div>
+                            <h4>Write API integration tests</h4>
+                            <p>Create comprehensive test suite for all API endpoints</p>
+                            <div class="task-meta">
+                                <span class="story-points">6 SP</span>
+                                <div class="task-assignee">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=30&h=30&fit=crop&crop=face" alt="Priya" title="Priya Sharma">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VM Desktop Environment -->
+        <div id="vm-desktop" class="vm-desktop hidden">
+            <div class="vm-header">
+                <div class="vm-controls">
+                    <button class="vm-btn vm-minimize" onclick="minimizeVM()"><i class="fas fa-minus"></i></button>
+                    <button class="vm-btn vm-maximize" onclick="maximizeVM()"><i class="fas fa-expand"></i></button>
+                    <button class="vm-btn vm-close" onclick="closeVM()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="vm-title">E-Learning Platform VM - Ubuntu 22.04</div>
+                <div class="vm-status-bar">
+                    <span class="vm-uptime">Uptime: 2h 15m</span>
+                    <span class="vm-resources">CPU: 45% | RAM: 62% | Storage: 35%</span>
+                </div>
+            </div>
+            
+            <div class="vm-screen">
+                <div class="desktop-background" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="desktop-icons">
+                        <div class="desktop-icon" onclick="openApp('vscode')">
+                            <i class="fas fa-code"></i>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="desktop-icon" onclick="openApp('terminal')">
+                            <i class="fas fa-terminal"></i>
+                            <span>Terminal</span>
+                        </div>
+                        <div class="desktop-icon" onclick="openApp('files')">
+                            <i class="fas fa-folder"></i>
+                            <span>Files</span>
+                        </div>
+                        <div class="desktop-icon" onclick="openApp('browser')">
+                            <i class="fab fa-chrome"></i>
+                            <span>Chrome</span>
+                        </div>
+                    </div>
+
+                    <div class="desktop-windows">
+                        <!-- VS Code Window -->
+                        <div class="desktop-window vscode-window hidden" id="vscode-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <button onclick="closeWindow('vscode-window')">×</button>
+                                </div>
+                                <div class="window-title">Visual Studio Code</div>
+                            </div>
+                            <div class="window-content">
+                                <div class="vscode-layout">
+                                    <div class="vscode-sidebar">
+                                        <div class="file-explorer">
+                                            <div class="file-tree">
+                                                <div class="file-item folder expanded" onclick="toggleFolder(this)">
+                                                    <i class="fas fa-folder-open"></i>
+                                                    <span>elearning-platform</span>
+                                                </div>
+                                                <div class="file-children">
+                                                    <div class="file-item folder" onclick="toggleFolder(this)">
+                                                        <i class="fas fa-folder"></i>
+                                                        <span>frontend</span>
+                                                    </div>
+                                                    <div class="file-item folder" onclick="toggleFolder(this)">
+                                                        <i class="fas fa-folder"></i>
+                                                        <span>backend</span>
+                                                    </div>
+                                                    <div class="file-item file" onclick="openFile('package.json')">
+                                                        <i class="fas fa-file-code"></i>
+                                                        <span>package.json</span>
+                                                    </div>
+                                                    <div class="file-item file" onclick="openFile('README.md')">
+                                                        <i class="fas fa-file-alt"></i>
+                                                        <span>README.md</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="vscode-editor">
+                                        <div class="editor-tabs">
+                                            <div class="tab active">Login.jsx</div>
+                                            <div class="tab">auth.js</div>
+                                        </div>
+                                        <div class="editor-content">
+                                            <div class="code-editor">
+                                                <pre><code class="javascript">import React, { useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
+
+const Login = () => {
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  });
+  
+  const { login, loading, error } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(credentials);
+    } catch (err) {
+      console.error('Login failed:', err);
+    }
+  };
+
+  return (
+    &lt;div className="login-container"&gt;
+      &lt;form onSubmit={handleSubmit}&gt;
+        &lt;input
+          type="email"
+          placeholder="Email"
+          value={credentials.email}
+          onChange={(e) => setCredentials({
+            ...credentials,
+            email: e.target.value
+          })}
+        /&gt;
+        &lt;input
+          type="password"
+          placeholder="Password"
+          value={credentials.password}
+          onChange={(e) => setCredentials({
+            ...credentials,
+            password: e.target.value
+          })}
+        /&gt;
+        &lt;button type="submit" disabled={loading}&gt;
+          {loading ? 'Signing in...' : 'Sign In'}
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default Login;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Window -->
+                        <div class="desktop-window terminal-window hidden" id="terminal-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <button onclick="closeWindow('terminal-window')">×</button>
+                                </div>
+                                <div class="window-title">Terminal</div>
+                            </div>
+                            <div class="window-content terminal-content">
+                                <div class="terminal-output" id="terminal-output">
+                                    <div class="terminal-line">student@vm-elearn-001:~/elearning-platform$ npm install</div>
+                                    <div class="terminal-line">✓ Dependencies installed successfully</div>
+                                    <div class="terminal-line">student@vm-elearn-001:~/elearning-platform$ npm run dev</div>
+                                    <div class="terminal-line">🚀 Development server running on http://localhost:3000</div>
+                                    <div class="terminal-line">student@vm-elearn-001:~/elearning-platform$ git status</div>
+                                    <div class="terminal-line">On branch feature/authentication</div>
+                                    <div class="terminal-line">Changes not staged for commit:</div>
+                                    <div class="terminal-line">  modified:   src/components/Login.jsx</div>
+                                </div>
+                                <div class="terminal-input-line">
+                                    <span class="terminal-prompt">student@vm-elearn-001:~/elearning-platform$ </span>
+                                    <input type="text" class="terminal-input" onkeypress="handleTerminalInput(event)" placeholder="Type command...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File Manager Window -->
+                        <div class="desktop-window files-window hidden" id="files-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <button onclick="closeWindow('files-window')">×</button>
+                                </div>
+                                <div class="window-title">File Manager</div>
+                            </div>
+                            <div class="window-content">
+                                <div class="file-manager">
+                                    <div class="file-toolbar">
+                                        <button class="btn btn--outline btn--sm" onclick="createNewFile()">New File</button>
+                                        <button class="btn btn--outline btn--sm" onclick="createNewFolder()">New Folder</button>
+                                    </div>
+                                    <div class="file-listing">
+                                        <div class="file-grid">
+                                            <div class="file-item" onclick="selectFile(this)">
+                                                <i class="fas fa-folder" style="color: #ffa726;"></i>
+                                                <span>Documents</span>
+                                            </div>
+                                            <div class="file-item" onclick="selectFile(this)">
+                                                <i class="fas fa-folder" style="color: #ffa726;"></i>
+                                                <span>elearning-platform</span>
+                                            </div>
+                                            <div class="file-item" onclick="selectFile(this)">
+                                                <i class="fas fa-file-code" style="color: #42a5f5;"></i>
+                                                <span>package.json</span>
+                                            </div>
+                                            <div class="file-item" onclick="selectFile(this)">
+                                                <i class="fas fa-file-alt" style="color: #66bb6a;"></i>
+                                                <span>README.md</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Browser Window -->
+                        <div class="desktop-window browser-window hidden" id="browser-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <button onclick="closeWindow('browser-window')">×</button>
+                                </div>
+                                <div class="window-title">Chrome - E-Learning Platform</div>
+                            </div>
+                            <div class="window-content">
+                                <div class="browser">
+                                    <div class="address-bar">
+                                        <input type="text" value="http://localhost:3000" readonly>
+                                        <button class="btn btn--outline btn--sm">🔄</button>
+                                    </div>
+                                    <div class="browser-content">
+                                        <div class="app-preview">
+                                            <div class="preview-header">
+                                                <div class="logo">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                    <span>EduPlatform</span>
+                                                </div>
+                                                <nav class="preview-nav">
+                                                    <a href="#">Home</a>
+                                                    <a href="#">Courses</a>
+                                                    <a href="#">Dashboard</a>
+                                                    <a href="#">Profile</a>
+                                                </nav>
+                                            </div>
+                                            <div class="preview-content">
+                                                <h1>Welcome to EduPlatform</h1>
+                                                <p>Your comprehensive online learning experience</p>
+                                                <div class="preview-courses">
+                                                    <div class="course-card">
+                                                        <h3>JavaScript Fundamentals</h3>
+                                                        <p>Learn the basics of JavaScript programming</p>
+                                                        <button class="btn btn--primary btn--sm">Start Learning</button>
+                                                    </div>
+                                                    <div class="course-card">
+                                                        <h3>React Development</h3>
+                                                        <p>Build modern web applications with React</p>
+                                                        <button class="btn btn--primary btn--sm">Start Learning</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="desktop-taskbar">
+                        <div class="taskbar-start">
+                            <div class="start-menu" onclick="toggleStartMenu()">
+                                <i class="fab fa-ubuntu"></i>
+                            </div>
+                        </div>
+                        <div class="taskbar-center">
+                            <div class="taskbar-app active" onclick="showWindow('vscode-window')">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="taskbar-app" onclick="showWindow('terminal-window')">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                        </div>
+                        <div class="taskbar-end">
+                            <div class="system-tray">
+                                <span class="system-time">16:45</span>
+                                <span class="system-date">Aug 19</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VM Management Panel -->
+        <div id="vm-management" class="modal hidden">
+            <div class="modal-content vm-management-content">
+                <div class="modal-header">
+                    <h2>VM Management</h2>
+                    <button class="modal-close" onclick="closeVMManagement()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="vm-tabs">
+                        <button class="vm-tab active" data-tab="overview">Overview</button>
+                        <button class="vm-tab" data-tab="environment">Environment</button>
+                        <button class="vm-tab" data-tab="monitoring">Monitoring</button>
+                        <button class="vm-tab" data-tab="collaborators">Collaborators</button>
+                    </div>
+
+                    <!-- Overview Tab -->
+                    <div class="vm-tab-content active" id="overview-tab">
+                        <div class="vm-overview">
+                            <div class="vm-info-grid">
+                                <div class="vm-info-card">
+                                    <h4>VM Specifications</h4>
+                                    <div class="vm-specs">
+                                        <div class="spec-item">
+                                            <i class="fas fa-microchip"></i>
+                                            <span>4 vCPUs</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <i class="fas fa-memory"></i>
+                                            <span>8 GB RAM</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <i class="fas fa-hdd"></i>
+                                            <span>50 GB SSD</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <i class="fab fa-ubuntu"></i>
+                                            <span>Ubuntu 22.04 LTS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vm-info-card">
+                                    <h4>VM Controls</h4>
+                                    <div class="vm-actions">
+                                        <button class="btn btn--success btn--sm" onclick="startVM('vm-elearn-001')">
+                                            <i class="fas fa-play"></i>
+                                            Start
+                                        </button>
+                                        <button class="btn btn--warning btn--sm" onclick="restartVM('vm-elearn-001')">
+                                            <i class="fas fa-redo"></i>
+                                            Restart
+                                        </button>
+                                        <button class="btn btn--error btn--sm" onclick="stopVM('vm-elearn-001')">
+                                            <i class="fas fa-stop"></i>
+                                            Stop
+                                        </button>
+                                        <button class="btn btn--outline btn--sm" onclick="resetVM('vm-elearn-001')">
+                                            <i class="fas fa-undo"></i>
+                                            Reset
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Environment Tab -->
+                    <div class="vm-tab-content" id="environment-tab">
+                        <div class="vm-environment">
+                            <h4>Development Environment</h4>
+                            <div class="env-tools">
+                                <div class="tool-item">
+                                    <i class="fab fa-node-js"></i>
+                                    <div class="tool-info">
+                                        <strong>Node.js</strong>
+                                        <span>v18.17.0</span>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fab fa-npm"></i>
+                                    <div class="tool-info">
+                                        <strong>npm</strong>
+                                        <span>v9.6.7</span>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-database"></i>
+                                    <div class="tool-info">
+                                        <strong>MongoDB</strong>
+                                        <span>v7.0.2</span>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fab fa-docker"></i>
+                                    <div class="tool-info">
+                                        <strong>Docker</strong>
+                                        <span>v24.0.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>Active Ports</h4>
+                            <div class="port-list">
+                                <div class="port-item">
+                                    <strong>3000</strong> - Frontend Development Server
+                                </div>
+                                <div class="port-item">
+                                    <strong>5000</strong> - Backend API Server
+                                </div>
+                                <div class="port-item">
+                                    <strong>27017</strong> - MongoDB Database
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monitoring Tab -->
+                    <div class="vm-tab-content" id="monitoring-tab">
+                        <div class="vm-monitoring">
+                            <div class="monitoring-stats">
+                                <div class="stat-card">
+                                    <h4>CPU Usage</h4>
+                                    <div class="stat-value">45%</div>
+                                    <div class="stat-bar">
+                                        <div class="stat-fill" style="width: 45%; background: #ff6b6b;"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <h4>Memory Usage</h4>
+                                    <div class="stat-value">62%</div>
+                                    <div class="stat-bar">
+                                        <div class="stat-fill" style="width: 62%; background: #4ecdc4;"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <h4>Storage Usage</h4>
+                                    <div class="stat-value">35%</div>
+                                    <div class="stat-bar">
+                                        <div class="stat-fill" style="width: 35%; background: #45b7d1;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-info">
+                                <h4>Session Information</h4>
+                                <div class="session-stats">
+                                    <div class="session-stat">
+                                        <strong>Current Session:</strong> 2h 15m
+                                    </div>
+                                    <div class="session-stat">
+                                        <strong>Total Sessions:</strong> 47
+                                    </div>
+                                    <div class="session-stat">
+                                        <strong>Last Accessed:</strong> Just now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collaborators Tab -->
+                    <div class="vm-tab-content" id="collaborators-tab">
+                        <div class="vm-collaborators">
+                            <h4>Team Members with VM Access</h4>
+                            <div class="collaborator-list">
+                                <div class="collaborator-item">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Alex Kumar">
+                                    <div class="collaborator-info">
+                                        <strong>Alex Kumar</strong>
+                                        <span>Lead Developer - Owner</span>
+                                    </div>
+                                    <div class="collaborator-status online">Online</div>
+                                </div>
+                                <div class="collaborator-item">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Raj Patel">
+                                    <div class="collaborator-info">
+                                        <strong>Raj Patel</strong>
+                                        <span>Frontend Developer</span>
+                                    </div>
+                                    <div class="collaborator-status away">Away</div>
+                                </div>
+                                <div class="collaborator-item">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&crop=face" alt="Maya Singh">
+                                    <div class="collaborator-info">
+                                        <strong>Maya Singh</strong>
+                                        <span>Backend Developer</span>
+                                    </div>
+                                    <div class="collaborator-status online">Online</div>
+                                </div>
+                                <div class="collaborator-item">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=40&h=40&fit=crop&crop=face" alt="Priya Sharma">
+                                    <div class="collaborator-info">
+                                        <strong>Priya Sharma</strong>
+                                        <span>QA Analyst</span>
+                                    </div>
+                                    <div class="collaborator-status offline">Offline</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn--outline" onclick="closeVMManagement()">Close</button>
+                    <button class="btn btn--primary" onclick="launchVM('vm-elearn-001')">Launch VM</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rest of the existing views remain exactly the same -->
+        <!-- Tickets View -->
+        <div id="tickets" class="view">
+            <div class="view-header">
+                <h1>Support Tickets</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search tickets..." id="ticket-search">
+                    </div>
+                    <button class="btn btn--primary" onclick="openCreateTicketModal()">
+                        <i class="fas fa-plus"></i>
+                        Create Ticket
+                    </button>
+                </div>
+            </div>
+
+            <div class="tickets-filters">
+                <select class="form-control filter-select" id="status-filter">
+                    <option value="all">All Tickets</option>
+                    <option value="open">Open</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                </select>
+                <select class="form-control filter-select" id="priority-filter">
+                    <option value="all">All Priorities</option>
+                    <option value="critical">Critical</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <select class="form-control filter-select" id="assignee-filter">
+                    <option value="all">All Assignees</option>
+                    <option value="alex">Alex Kumar</option>
+                    <option value="priya">Priya Sharma</option>
+                    <option value="raj">Raj Patel</option>
+                    <option value="maya">Maya Singh</option>
+                </select>
+            </div>
+
+            <div class="tickets-list" id="tickets-list">
+                <!-- Tickets will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Documents View -->
+        <div id="documents" class="view">
+            <div class="view-header">
+                <h1>Documentation Center</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search documents..." id="doc-search">
+                    </div>
+                    <button class="btn btn--primary" onclick="openTemplateModal()">
+                        <i class="fas fa-plus"></i>
+                        New Document
+                    </button>
+                </div>
+            </div>
+
+            <div class="documents-grid" id="documents-grid">
+                <!-- Documents will be dynamically populated -->
+            </div>
+
+            <div class="templates-section">
+                <h2>Document Templates</h2>
+                <div class="templates-grid">
+                    <div class="template-card" onclick="createFromTemplate('srs')">
+                        <i class="fas fa-file-contract"></i>
+                        <h4>SRS Template</h4>
+                        <p>Standard template for documenting software requirements</p>
+                    </div>
+                    <div class="template-card" onclick="createFromTemplate('sprint')">
+                        <i class="fas fa-running"></i>
+                        <h4>Sprint Planning</h4>
+                        <p>Template for planning and documenting sprint goals</p>
+                    </div>
+                    <div class="template-card" onclick="createFromTemplate('test')">
+                        <i class="fas fa-flask"></i>
+                        <h4>Test Case Template</h4>
+                        <p>Standard format for writing test cases</p>
+                    </div>
+                    <div class="template-card" onclick="createFromTemplate('bug')">
+                        <i class="fas fa-bug"></i>
+                        <h4>Bug Report Template</h4>
+                        <p>Template for reporting and tracking bugs</p>
+                    </div>
+                    <div class="template-card" onclick="createFromTemplate('deployment')">
+                        <i class="fas fa-server"></i>
+                        <h4>Deployment Checklist</h4>
+                        <p>Comprehensive checklist for deployments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Communication View -->
+        <div id="communication" class="view">
+            <div class="view-header">
+                <h1>Team Communication</h1>
+            </div>
+            
+            <div class="chat-layout">
+                <div class="chat-sidebar">
+                    <div class="chat-channels">
+                        <h3>Channels</h3>
+                        <div class="channel-list">
+                            <div class="channel-item active" data-channel="team-alpha-general">
+                                <span class="channel-icon">#</span>
+                                <span class="channel-name">team-alpha-general</span>
+                                <span class="unread-badge">3</span>
+                            </div>
+                            <div class="channel-item" data-channel="development">
+                                <span class="channel-icon">#</span>
+                                <span class="channel-name">development</span>
+                            </div>
+                            <div class="channel-item" data-channel="announcements">
+                                <span class="channel-icon">#</span>
+                                <span class="channel-name">announcements</span>
+                                <span class="unread-badge">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <h3>#team-alpha-general</h3>
+                        <div class="chat-members">6 members</div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message">
+                            <div class="message-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=40&h=40&fit=crop&crop=face" alt="Priya">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <strong>Priya Sharma</strong>
+                                    <span class="message-time">4:45 PM</span>
+                                </div>
+                                <div class="message-text">Great job on the API tests everyone! All endpoints are now fully covered.</div>
+                                <div class="message-reactions">
+                                    <span class="reaction">👏 3</span>
+                                    <span class="reaction">🎉 2</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message">
+                            <div class="message-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Alex">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <strong>Alex Kumar</strong>
+                                    <span class="message-time">3:30 PM</span>
+                                </div>
+                                <div class="message-text">Authentication module is ready for code review. Please check the PR when you get a chance.</div>
+                                <div class="message-reactions">
+                                    <span class="reaction">✅ 1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <div class="input-container">
+                            <input type="text" placeholder="Type a message..." id="message-input">
+                            <button class="send-btn" onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mentorship View -->
+        <div id="mentorship" class="view">
+            <div class="view-header">
+                <h1>Mentorship Program</h1>
+                <button class="btn btn--primary" onclick="scheduleSession()">
+                    <i class="fas fa-calendar-plus"></i>
+                    Schedule Session
+                </button>
+            </div>
+
+            <div class="mentorship-grid">
+                <div class="card mentor-card">
+                    <div class="card__body">
+                        <div class="mentor-header">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Dr. Sarah Chen" class="mentor-avatar">
+                            <div class="mentor-info">
+                                <h3>Dr. Sarah Chen</h3>
+                                <p>Senior Software Architect, Google</p>
+                                <div class="mentor-rating">
+                                    <span class="rating">4.9</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>12 years experience • 8 mentees • Software Architecture specialist</p>
+                        <div class="mentor-skills">
+                            <span class="skill-tag">System Design</span>
+                            <span class="skill-tag">Microservices</span>
+                            <span class="skill-tag">Cloud Architecture</span>
+                        </div>
+                        <div class="mentor-actions">
+                            <button class="btn btn--outline btn--sm">View Profile</button>
+                            <button class="btn btn--primary btn--sm" onclick="scheduleWithMentor('sarah')">Schedule Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card sessions-card">
+                    <div class="card__body">
+                        <h3>Upcoming Sessions</h3>
+                        <div class="session-item">
+                            <div class="session-time">
+                                <strong>Tomorrow, 2:00 PM</strong>
+                                <span>1 hour session</span>
+                            </div>
+                            <div class="session-info">
+                                <h4>Code Review & Architecture Discussion</h4>
+                                <p>With Dr. Sarah Chen</p>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn btn--outline btn--sm" onclick="rescheduleSession(1)">Reschedule</button>
+                                <button class="btn btn--primary btn--sm" onclick="joinSession(1)">Join</button>
+                            </div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-time">
+                                <strong>Friday, 10:30 AM</strong>
+                                <span>45 min session</span>
+                            </div>
+                            <div class="session-info">
+                                <h4>DevOps Best Practices</h4>
+                                <p>With Rajesh Kumar</p>
+                            </div>
+                            <div class="session-actions">
+                                <button class="btn btn--outline btn--sm" onclick="rescheduleSession(2)">Reschedule</button>
+                                <button class="btn btn--primary btn--sm" onclick="joinSession(2)">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card feedback-card">
+                    <div class="card__body">
+                        <h3>Recent Feedback</h3>
+                        <div class="feedback-item">
+                            <div class="feedback-header">
+                                <strong>Authentication Module Review</strong>
+                                <span class="feedback-date">Aug 15, 2024</span>
+                            </div>
+                            <p>"Excellent implementation of JWT tokens. Consider adding rate limiting for enhanced security."</p>
+                            <div class="feedback-rating">
+                                <span>Rating: </span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn--outline btn--sm">View All Feedback</button>
+                    </div>
+                </div>
+
+                <div class="card goals-card">
+                    <div class="card__body">
+                        <h3>Learning Goals</h3>
+                        <div class="goal-item">
+                            <div class="goal-info">
+                                <strong>Master System Design</strong>
+                                <span>Progress: 65%</span>
+                            </div>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="goal-item">
+                            <div class="goal-info">
+                                <strong>Cloud Architecture Certification</strong>
+                                <span>Progress: 45%</span>
+                            </div>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn--outline btn--sm">Add New Goal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics View -->
+        <div id="analytics" class="view">
+            <div class="view-header">
+                <h1>Analytics Dashboard</h1>
+                <div class="analytics-filters">
+                    <select class="form-control" id="time-range">
+                        <option value="30">Last 30 days</option>
+                        <option value="90">Last 3 months</option>
+                        <option value="180">Last 6 months</option>
+                    </select>
+                    <button class="btn btn--outline" onclick="exportAnalytics()">
+                        <i class="fas fa-download"></i>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="card metrics-card">
+                    <div class="card__body">
+                        <h3>Performance Metrics</h3>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="metric-value">
+                                <strong>85%</strong>
+                                <span>Task Completion Rate</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="metric-value">
+                                <strong>72h</strong>
+                                <span>Avg. Resolution Time</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="metric-value">
+                                <strong>92%</strong>
+                                <span>Code Quality Score</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card skills-progress">
+                    <div class="card__body">
+                        <h3>Skills Development</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>React</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress-fill" style="width: 75%; background-color: #61DAFB;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Node.js</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress-fill" style="width: 70%; background-color: #68A063;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Testing (Jest)</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress-fill" style="width: 65%; background-color: #99425B;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>MongoDB</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress-fill" style="width: 45%; background-color: #4DB33D;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card achievements-card">
+                    <div class="card__body">
+                        <h3>Achievements & Badges</h3>
+                        <div class="badges-grid">
+                            <div class="badge-item">
+                                <i class="fas fa-trophy badge-icon gold"></i>
+                                <span>Sprint Champion</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-code badge-icon blue"></i>
+                                <span>Code Quality</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-users badge-icon green"></i>
+                                <span>Team Player</span>
+                            </div>
+                            <div class="badge-item locked">
+                                <i class="fas fa-lock badge-icon gray"></i>
+                                <span>Bug Hunter</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--outline btn--sm">View All Achievements</button>
+                    </div>
+                </div>
+
+                <div class="card activity-timeline">
+                    <div class="card__body">
+                        <h3>Activity Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>Completed Sprint 3 tasks</strong>
+                                    <span>Today, 3:30 PM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>Code review session with mentor</strong>
+                                    <span>Yesterday, 2:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <strong>Fixed authentication bug</strong>
+                                    <span>Aug 17, 4:15 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card chart-container" style="position: relative; height: 300px;">
+                    <div class="card__body">
+                        <h3>Performance Chart</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Ticket Modal -->
+    <div id="createTicketModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Ticket</h2>
+                <button class="modal-close" onclick="closeCreateTicketModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-body" id="ticket-form">
+                <div class="form-group">
+                    <label class="form-label">Subject <span style="color: var(--color-error);">*</span></label>
+                    <input type="text" class="form-control" name="subject" placeholder="Brief description of the issue" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Priority</label>
+                    <select class="form-control" name="priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Type</label>
+                    <select class="form-control" name="type">
+                        <option value="bug" selected>Bug</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="support">Support</option>
+                        <option value="improvement">Improvement</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" rows="4" name="description" placeholder="Detailed description of the issue..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Assign to</label>
+                    <select class="form-control" name="assignee">
+                        <option value="">Select team member</option>
+                        <option value="alex">Alex Kumar</option>
+                        <option value="priya">Priya Sharma</option>
+                        <option value="raj">Raj Patel</option>
+                        <option value="maya">Maya Singh</option>
+                    </select>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn--outline" onclick="closeCreateTicketModal()">Cancel</button>
+                <button class="btn btn--primary" onclick="createTicket()">Create Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Modal -->
+    <div id="templateModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Choose Template</h2>
+                <button class="modal-close" onclick="closeTemplateModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="template-options">
+                    <div class="template-option" onclick="selectTemplate('srs')">
+                        <i class="fas fa-file-contract"></i>
+                        <h4>Software Requirements Specification</h4>
+                        <p>Standard template for documenting software requirements following IEEE standards</p>
+                    </div>
+                    <div class="template-option" onclick="selectTemplate('sprint')">
+                        <i class="fas fa-running"></i>
+                        <h4>Sprint Planning Template</h4>
+                        <p>Template for planning and documenting sprint goals and tasks</p>
+                    </div>
+                    <div class="template-option" onclick="selectTemplate('test')">
+                        <i class="fas fa-flask"></i>
+                        <h4>Test Case Template</h4>
+                        <p>Standard format for writing comprehensive test cases</p>
+                    </div>
+                    <div class="template-option" onclick="selectTemplate('bug')">
+                        <i class="fas fa-bug"></i>
+                        <h4>Bug Report Template</h4>
+                        <p>Template for reporting and tracking bugs systematically</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

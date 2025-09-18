@@ -1,0 +1,64 @@
+# docker-compose.yml
+version: '3.8'
+
+networks:
+  guacnetwork:
+    driver: bridge
+
+services:
+  # Guacamole Server (guacd)
+  guacd:
+    image: guacamole/guacd:1.6.0
+    container_name: guacd
+    restart: unless-stopped
+    networks:
+      - guacnetwork
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15.2-alpine
+    container_name: guacamole-db
+    restart: unless-stopped
+    environment:
+      PGDATA: /var/lib/postgresql/data/guacamole
+      POSTGRES_DB: guacamole_db
+      POSTGRES_USER: guacamole_user
+      POSTGRES_PASSWORD: 'admin123' # <<< CHANGE THIS
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d:ro # SQL scripts for init
+      - postgres_data:/var/lib/postgresql/data # Database storage
+    networks:
+      - guacnetwork
+
+  # Guacamole Web Application
+  guacamole:
+    image: guacamole/guacamole:1.6.0
+    container_name: guacamole-web
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - guacd
+    environment:
+      # Guacd connection
+      GUACD_HOSTNAME: guacd
+      # PostgreSQL connection
+      POSTGRESQL_HOSTNAME: guacamole-db
+      POSTGRESQL_DATABASE: guacamole_db
+      POSTGRESQL_USERNAME: guacamole_user
+      POSTGRESQL_PASSWORD: 'admin123' # <<< MUST MATCH POSTGRES_PASSWORD ABOVE
+    ports:
+      - "8080:8080" # Web interface: http://localhost:8080/guacamole
+    networks:
+      - guacnetwork
+    
+  student-desktop:
+    build: .
+    container_name: student1
+    networks:
+      - guacnetwork  # Add this line to match Guacamole's network
+    ports:
+      - "3390:3389"  # Optional: keep this if you want external access
+    restart: unless-stopped
+
+volumes:
+  postgres_data: # Named volume for database persistence

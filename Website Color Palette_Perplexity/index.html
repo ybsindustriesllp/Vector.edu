@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TACTICAL OPS - Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-mono">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-title">TACTICAL OPS</h1>
+            <p class="sidebar-subtitle">v2.17 CLASSIFIED</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-section="command">
+                        <span class="nav-icon">⌘</span>
+                        COMMAND CENTER
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="network">
+                        <span class="nav-icon">🕸</span>
+                        AGENT NETWORK
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="operations">
+                        <span class="nav-icon">⚡</span>
+                        OPERATIONS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="intelligence">
+                        <span class="nav-icon">🔍</span>
+                        INTELLIGENCE
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="systems">
+                        <span class="nav-icon">⚙</span>
+                        SYSTEMS
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="system-status">
+            <div class="status-line online">
+                <span class="status-indicator"></span>
+                <span>SYSTEM ONLINE</span>
+            </div>
+            <div class="status-metrics">
+                <div class="metric">
+                    <span class="metric-label">UPTIME</span>
+                    <span class="metric-value" id="uptime">72:14:33</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">AGENTS</span>
+                    <span class="metric-value" id="agents-active">347 ACTIVE</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">MISSIONS</span>
+                    <span class="metric-value" id="missions-ongoing">23 ONGOING</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="breadcrumb">
+                <span>TACTICAL COMMAND / OVERVIEW</span>
+            </div>
+            <div class="last-update">
+                <span class="update-label">LAST UPDATE:</span>
+                <span class="update-time" id="last-update">09/08/2025 20:00 UTC</span>
+            </div>
+        </header>
+        
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Agent Allocation Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>AGENT ALLOCATION</h3>
+                </div>
+                <div class="card-body">
+                    <div class="allocation-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">190</div>
+                            <div class="stat-label">ACTIVE FIELD</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">990</div>
+                            <div class="stat-label">UNDERCOVER</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">290</div>
+                            <div class="stat-label">TRAINING</div>
+                        </div>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">
+                            <span class="agent-code">G-871M</span>
+                            <span class="agent-name">VENGEFUL SPIRIT</span>
+                            <span class="agent-status active"></span>
+                        </div>
+                        <div class="agent-item">
+                            <span class="agent-code">G-879K</span>
+                            <span class="agent-name">OBSIDIAN SENTINEL</span>
+                            <span class="agent-status active"></span>
+                        </div>
+                        <div class="agent-item">
+                            <span class="agent-code">G-888V</span>
+                            <span class="agent-name">GHOSTLY FURY</span>
+                            <span class="agent-status active"></span>
+                        </div>
+                        <div class="agent-item">
+                            <span class="agent-code">G-881Z</span>
+                            <span class="agent-name">CURSED REVENANT</span>
+                            <span class="agent-status compromised"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Activity Log Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>ACTIVITY LOG</h3>
+                </div>
+                <div class="card-body">
+                    <div class="activity-log" id="activity-log">
+                        <div class="log-entry">
+                            <span class="log-time">27/08/2025 09:25</span>
+                            <span class="log-text">Agent <span class="agent-jules_dawn">jules_dawn</span> completed undercover mission in Berlin with agent <span class="agent-dark_high">dark_high</span></span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">18/08/2025 08:12</span>
+                            <span class="log-text">Agent <span class="agent-dragon_v310">dragon_v310</span> extracted high-value target in Cairo</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">15/08/2025 23:56</span>
+                            <span class="log-text">Agent <span class="agent-eagle_shadow">eagle_shadow</span> lost communication in Havana</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">12/08/2025 14:31</span>
+                            <span class="log-text">Agent <span class="agent-phantom_boxer">phantom_boxer</span> initiated surveillance in Tokyo</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">09/08/2025 19:45</span>
+                            <span class="log-text">Agent <span class="agent-void_switch">void_switch</span> compromised security in Moscow with agent <span class="agent-dark_matrix">dark_matrix</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Encrypted Chat Activity Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>ENCRYPTED CHAT ACTIVITY</h3>
+                </div>
+                <div class="card-body">
+                    <div class="crosshair-diagram">
+                        <div class="crosshair-center">
+                            <div class="crosshair-horizontal"></div>
+                            <div class="crosshair-vertical"></div>
+                            <div class="crosshair-dot"></div>
+                        </div>
+                    </div>
+                    <div class="chat-log">
+                        <div class="chat-entry system">
+                            <span class="chat-time">2025-05-17 14:23 UTC</span>
+                            <span class="chat-text">[ACT-QUALIFIED] :::: INIT >> ^^^ loading secure channel</span>
+                        </div>
+                        <div class="chat-entry command">
+                            <span class="chat-text">> override COMMAND.exe...ssl</span>
+                        </div>
+                        <div class="chat-entry system">
+                            <span class="chat-text">> KEY LOCKED</span>
+                        </div>
+                        <div class="chat-entry system">
+                            <span class="chat-text">> MSG >> 'x..division override initiated... awaiting delta node clearance'</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mission Activity Overview Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>MISSION ACTIVITY OVERVIEW</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container" style="position: relative; height: 200px;">
+                        <canvas id="mission-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mission Information Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>MISSION INFORMATION</h3>
+                </div>
+                <div class="card-body">
+                    <div class="mission-stats">
+                        <div class="mission-category">
+                            <div class="category-header">SUCCESSFUL MISSIONS</div>
+                            <div class="mission-item success">
+                                <span class="mission-type">HIGH RISK</span>
+                                <span class="mission-count">108</span>
+                            </div>
+                            <div class="mission-item success">
+                                <span class="mission-type">MEDIUM RISK</span>
+                                <span class="mission-count">442</span>
+                            </div>
+                            <div class="mission-item success">
+                                <span class="mission-type">LOW RISK</span>
+                                <span class="mission-count">928</span>
+                            </div>
+                        </div>
+                        <div class="mission-category">
+                            <div class="category-header">FAILED MISSIONS</div>
+                            <div class="mission-item failed">
+                                <span class="mission-type">HIGH RISK</span>
+                                <span class="mission-count">198</span>
+                            </div>
+                            <div class="mission-item failed">
+                                <span class="mission-type">MEDIUM RISK</span>
+                                <span class="mission-count">432</span>
+                            </div>
+                            <div class="mission-item failed">
+                                <span class="mission-type">LOW RISK</span>
+                                <span class="mission-count">328</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Threat Assessment Card (6th card) -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>THREAT ASSESSMENT</h3>
+                </div>
+                <div class="card-body">
+                    <div class="threat-levels">
+                        <div class="threat-item critical">
+                            <span class="threat-indicator critical"></span>
+                            <div class="threat-info">
+                                <span class="threat-level">CRITICAL</span>
+                                <span class="threat-count">3 ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="threat-item high">
+                            <span class="threat-indicator high"></span>
+                            <div class="threat-info">
+                                <span class="threat-level">HIGH</span>
+                                <span class="threat-count">12 ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="threat-item medium">
+                            <span class="threat-indicator medium"></span>
+                            <div class="threat-info">
+                                <span class="threat-level">MEDIUM</span>
+                                <span class="threat-count">28 ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="threat-item low">
+                            <span class="threat-indicator low"></span>
+                            <div class="threat-info">
+                                <span class="threat-level">LOW</span>
+                                <span class="threat-count">67 ACTIVE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="threat-regions">
+                        <div class="region-header">HIGH RISK REGIONS</div>
+                        <div class="region-list">
+                            <div class="region-item">
+                                <span class="region-name">SECTOR 7-ALPHA</span>
+                                <span class="region-status critical">CRITICAL</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-name">SECTOR 12-BETA</span>
+                                <span class="region-status high">HIGH</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-name">SECTOR 3-GAMMA</span>
+                                <span class="region-status high">HIGH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>
